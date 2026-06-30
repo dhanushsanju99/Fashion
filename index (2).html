@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fashion Opticals — Pilathara, Kannur</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,560;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0E1714;
+    --bg-soft:#152019;
+    --paper:#F3EFE6;
+    --ink:#0E1714;
+    --amber:#E0A93E;
+    --amber-soft:#F2C97A;
+    --emerald:#3E7A5C;
+    --emerald-soft:#9BC4AC;
+    --line: rgba(243,239,230,0.12);
+    --card:#172420;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--paper);
+    font-family:'Inter',sans-serif;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces',serif;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit; text-decoration:none;}
+  img{display:block; max-width:100%;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
+  .eyebrow{
+    text-transform:uppercase;
+    font-size:12px;
+    letter-spacing:0.16em;
+    color:var(--amber);
+    font-weight:600;
+  }
+
+  /* ===== NAV ===== */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    backdrop-filter:blur(10px);
+    background:rgba(14,23,20,0.82);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:78px;
+  }
+  .logo{
+    font-family:'Fraunces',serif;
+    font-weight:700;
+    font-size:22px;
+    display:flex; align-items:center; gap:10px;
+    color:var(--paper);
+  }
+  .logo .ring{
+    width:26px;height:26px;border-radius:50%;
+    border:2.5px solid var(--amber);
+    position:relative;
+  }
+  .logo .ring::after{
+    content:'';
+    position:absolute; left:22px; top:50%; width:14px; height:2.5px;
+    background:var(--amber); transform:translateY(-50%);
+  }
+  nav ul{display:flex; gap:34px; list-style:none;}
+  nav ul li a{
+    font-size:14.5px; font-weight:500; color:var(--emerald-soft);
+  }
+  nav ul li a:hover{color:var(--amber-soft);}
+  .nav-cta{
+    background:var(--amber); color:var(--ink);
+    padding:11px 22px; border-radius:30px; font-size:14px; font-weight:700;
+  }
+  .nav-cta:hover{background:var(--amber-soft);}
+  @media (max-width:880px){ nav ul{display:none;} }
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    padding:170px 0 90px;
+    overflow:hidden;
+    background:
+      radial-gradient(ellipse 700px 500px at 85% -10%, rgba(224,169,62,0.18), transparent 60%),
+      radial-gradient(ellipse 600px 500px at -10% 30%, rgba(62,122,92,0.25), transparent 60%);
+  }
+  .hero .wrap{
+    display:grid; grid-template-columns:1.05fr 0.95fr; gap:50px; align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(40px,5.6vw,70px);
+    line-height:1.02;
+    font-weight:560;
+    color:var(--paper);
+  }
+  .hero h1 em{
+    font-style:italic; color:var(--amber-soft);
+  }
+  .hero p.lede{
+    margin-top:22px; font-size:18px; color:var(--emerald-soft); max-width:460px; line-height:1.6;
+  }
+  .hero-actions{display:flex; gap:14px; margin-top:34px; flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--amber); color:var(--ink); padding:15px 28px; border-radius:30px;
+    font-weight:700; font-size:15px; display:inline-block;
+  }
+  .btn-primary:hover{background:var(--amber-soft);}
+  .btn-ghost{
+    border:1.5px solid var(--emerald-soft); color:var(--paper); padding:14px 26px; border-radius:30px;
+    font-weight:600; font-size:15px;
+  }
+  .btn-ghost:hover{background:var(--emerald); border-color:var(--emerald);}
+  .hero-stats{display:flex; gap:36px; margin-top:48px;}
+  .hero-stats div b{font-family:'Fraunces',serif; font-size:28px; display:block; color:var(--amber-soft);}
+  .hero-stats div span{font-size:12.5px; color:var(--emerald-soft); text-transform:uppercase; letter-spacing:0.08em;}
+
+  .hero-visual{
+    position:relative;
+    aspect-ratio: 4/5;
+    border-radius:26px;
+    overflow:hidden;
+    box-shadow:0 30px 60px -20px rgba(0,0,0,0.55);
+    border:1px solid var(--line);
+  }
+  .hero-visual img{width:100%;height:100%;object-fit:cover;}
+  .lens-tag{
+    position:absolute; bottom:22px; left:22px; right:22px;
+    background:rgba(14,23,20,0.85);
+    backdrop-filter:blur(6px);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:16px 18px;
+    display:flex; align-items:center; gap:12px;
+  }
+  .lens-tag .dot{width:10px;height:10px;border-radius:50%;background:var(--amber); flex-shrink:0;}
+  .lens-tag span{font-size:13.5px; color:var(--emerald-soft); line-height:1.4;}
+
+  .magnify{
+    position:absolute; top:-90px; right:-90px;
+    width:170px; height:170px; border-radius:50%;
+    border:3px solid var(--amber);
+    opacity:0.45;
+    pointer-events:none;
+  }
+
+  section{padding:96px 0;}
+  .section-head{
+    display:flex; justify-content:space-between; align-items:flex-end; gap:30px;
+    margin-bottom:48px; flex-wrap:wrap;
+  }
+  .section-head h2{font-size:clamp(30px,3.6vw,44px); font-weight:560; color:var(--paper);}
+  .section-head p{color:var(--emerald-soft); max-width:380px; font-size:15.5px; line-height:1.6;}
+
+  /* ===== TRUST STRIP ===== */
+  .trust{
+    background:var(--emerald); color:var(--ink);
+    padding:26px 0;
+  }
+  .trust .wrap{
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:18px;
+    font-size:13px; letter-spacing:0.04em; text-transform:uppercase; color:rgba(14,23,20,0.78);
+  }
+  .trust b{color:var(--ink); font-weight:700;}
+
+  /* ===== FRAMES ===== */
+  .frame-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:22px;
+  }
+  @media (max-width:980px){ .frame-grid{grid-template-columns:repeat(2,1fr);} }
+  .frame-card{
+    background:var(--card); border-radius:20px; overflow:hidden;
+    border:1px solid var(--line);
+    transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+  }
+  .frame-card:hover{ transform:translateY(-6px); box-shadow:0 20px 40px -18px rgba(0,0,0,0.5); border-color:var(--amber); }
+  .frame-card .imgwrap{aspect-ratio:1/1.05; overflow:hidden; position:relative;}
+  .frame-card .imgwrap img{width:100%;height:100%;object-fit:cover; transition:transform .6s ease;}
+  .frame-card:hover .imgwrap img{transform:scale(1.07);}
+  .frame-card .info{padding:18px 18px 22px;}
+  .frame-card .info .eyebrow{font-size:11px;}
+  .frame-card h3{font-size:18px; margin:6px 0 4px; font-weight:500; color:var(--paper);}
+  .frame-card .price{font-size:14px; color:var(--emerald-soft);}
+
+  /* ===== LENS TYPES ===== */
+  .lens-list{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    border-radius:20px;
+    overflow:hidden;
+  }
+  @media (max-width:880px){ .lens-list{grid-template-columns:1fr;} }
+  .lens-item{
+    background:var(--card); padding:34px 30px;
+    position:relative;
+  }
+  .lens-item .f-number{
+    font-family:'Fraunces',serif; font-style:italic; color:var(--amber);
+    font-size:15px; margin-bottom:18px; display:block;
+  }
+  .lens-item h3{font-size:20px; margin-bottom:10px; font-weight:560; color:var(--paper);}
+  .lens-item p{font-size:14.5px; color:var(--emerald-soft); line-height:1.65;}
+
+  /* ===== MODELS / CAMPAIGN — masonry feel ===== */
+  .campaign{
+    display:grid; grid-template-columns:repeat(3,1fr); grid-auto-rows:160px; gap:18px;
+  }
+  @media (max-width:880px){ .campaign{grid-template-columns:repeat(2,1fr); grid-auto-rows:140px;} }
+  .campaign figure{
+    border-radius:18px; overflow:hidden; position:relative;
+  }
+  .campaign figure.tall{grid-row:span 2;}
+  .campaign figure img{width:100%; height:100%; object-fit:cover;}
+  .campaign figcaption{
+    position:absolute; left:0; right:0; bottom:0;
+    padding:18px;
+    background:linear-gradient(0deg, rgba(14,23,20,0.92), transparent 70%);
+    color:var(--paper); font-size:13.5px;
+  }
+  .campaign figcaption b{display:block; font-family:'Fraunces',serif; font-size:17px; font-weight:560; margin-bottom:2px; color:var(--amber-soft);}
+
+  /* ===== PROCESS ===== */
+  .process{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:24px;
+  }
+  @media (max-width:880px){ .process{grid-template-columns:repeat(2,1fr);} }
+  .process .step .f-number{
+    font-family:'Fraunces',serif; font-style:italic; color:var(--amber); font-size:15px;
+  }
+  .process .step h3{margin:14px 0 8px; font-size:18px; font-weight:560; color:var(--paper);}
+  .process .step p{font-size:14px; color:var(--emerald-soft); line-height:1.6;}
+
+  /* ===== TESTIMONIAL ===== */
+  .testimonial-band{
+    background:var(--card); border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+  }
+  .testimonial-band .wrap{
+    display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center;
+  }
+  @media (max-width:880px){ .testimonial-band .wrap{grid-template-columns:1fr;} }
+  .testimonial-band blockquote{
+    font-family:'Fraunces',serif; font-size:clamp(22px,2.6vw,30px); line-height:1.4; font-weight:400; font-style:italic; color:var(--paper);
+  }
+  .testimonial-band cite{display:block; margin-top:22px; font-style:normal; font-size:14px; color:var(--emerald-soft);}
+  .testimonial-band img{border-radius:18px; aspect-ratio:4/5; object-fit:cover; width:100%; border:1px solid var(--line);}
+
+  /* ===== LOCATION ===== */
+  .location-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:36px; align-items:stretch;
+  }
+  @media (max-width:880px){ .location-grid{grid-template-columns:1fr;} }
+  .location-info{
+    background:var(--card); border:1px solid var(--line); border-radius:20px; padding:36px;
+  }
+  .location-info h3{font-size:24px; margin-bottom:18px; font-weight:560; color:var(--paper);}
+  .location-info .item{
+    display:flex; gap:14px; padding:16px 0; border-top:1px solid var(--line);
+  }
+  .location-info .item:first-of-type{border-top:none;}
+  .location-info .item b{display:block; font-size:14.5px; margin-bottom:3px; color:var(--amber-soft);}
+  .location-info .item span{font-size:14px; color:var(--emerald-soft); line-height:1.55;}
+  .map-embed{
+    border-radius:20px; overflow:hidden; border:1px solid var(--line); min-height:340px; filter:grayscale(0.2) contrast(1.05);
+  }
+  .map-embed iframe{width:100%; height:100%; min-height:340px; border:0;}
+
+  /* ===== CTA BOOK ===== */
+  .cta-band{
+    background: var(--amber);
+    color:var(--ink);
+    border-radius:28px;
+    margin:0 32px;
+    padding:60px 50px;
+    display:flex; justify-content:space-between; align-items:center; gap:30px; flex-wrap:wrap;
+  }
+  .cta-band h2{font-size:clamp(26px,3vw,38px); font-weight:560; max-width:480px; color:var(--ink);}
+  .cta-band .btn-primary{background:var(--ink); color:var(--paper);}
+  .cta-band .btn-primary:hover{background:var(--emerald);}
+
+  /* ===== FOOTER ===== */
+  footer{padding:70px 0 30px;}
+  .footer-grid{
+    display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px;
+    padding-bottom:50px; border-bottom:1px solid var(--line);
+  }
+  @media (max-width:780px){ .footer-grid{grid-template-columns:1fr 1fr;} }
+  .footer-grid h4{font-size:13px; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:16px; color:var(--amber);}
+  .footer-grid ul{list-style:none;}
+  .footer-grid li{margin-bottom:10px; font-size:14.5px; color:var(--emerald-soft);}
+  .footer-bottom{
+    padding-top:24px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    font-size:13px; color:var(--emerald-soft);
+  }
+
+  .fade-up{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
+  .fade-up.in{opacity:1; transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="#" class="logo"><span class="ring"></span>Fashion Opticals</a>
+    <ul>
+      <li><a href="#frames">Frames</a></li>
+      <li><a href="#lenses">Lenses</a></li>
+      <li><a href="#looks">Lookbook</a></li>
+      <li><a href="#visit">Visit Us</a></li>
+    </ul>
+    <a class="nav-cta" href="#visit">Book Eye Test</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Pilathara · Kannur</span>
+      <h1 style="margin-top:14px;">See the world<br>in <em>sharper</em> focus.</h1>
+      <p class="lede">Fashion Opticals brings precision eye care and a curated edit of modern frames to Pilathara — fitted, tested, and finished while you wait.</p>
+      <div class="hero-actions">
+        <a href="#frames" class="btn-primary">Explore Frames</a>
+        <a href="#visit" class="btn-ghost">Get Directions</a>
+      </div>
+      <div class="hero-stats">
+        <div><b>1200+</b><span>Frames in store</span></div>
+        <div><b>15+</b><span>Lens types</span></div>
+        <div><b>4.8★</b><span>Customer rating</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="magnify"></div>
+      <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?q=80&w=1000&auto=format&fit=crop" alt="Model wearing modern eyeglasses">
+      <div class="lens-tag"><span class="dot"></span><span>Frame shown: <b>Aria</b> acetate round, with anti-glare blue-light lenses</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="wrap">
+    <span><b>Free</b> computerized eye test</span>
+    <span><b>Same-day</b> lens fitting</span>
+    <span><b>1-year</b> frame warranty</span>
+    <span><b>Genuine</b> branded eyewear</span>
+  </div>
+</div>
+
+<section id="frames">
+  <div class="wrap">
+    <div class="section-head fade-up">
+      <h2>Frames for every<br>face & every day.</h2>
+      <p>From boardroom classics to weekend statement pieces — handpicked acetate, titanium, and rimless styles for men, women, and kids.</p>
+    </div>
+    <div class="frame-grid">
+      <div class="frame-card fade-up">
+        <div class="imgwrap"><img src="https://images.unsplash.com/photo-1577803645773-f96470509666?q=80&w=800&auto=format&fit=crop" alt="Tortoiseshell acetate frame"></div>
+        <div class="info"><span class="eyebrow">Acetate · Unisex</span><h3>Tortoise Round</h3><span class="price">₹1,899 onward</span></div>
+      </div>
+      <div class="frame-card fade-up">
+        <div class="imgwrap"><img src="https://images.unsplash.com/photo-1591076482161-42ce6da69f67?q=80&w=800&auto=format&fit=crop" alt="Thin gold metal frame"></div>
+        <div class="info"><span class="eyebrow">Titanium · Women</span><h3>Halo Wire</h3><span class="price">₹2,499 onward</span></div>
+      </div>
+      <div class="frame-card fade-up">
+        <div class="imgwrap"><img src="https://images.unsplash.com/photo-1483412033650-1015ddeb83d1?q=80&w=800&auto=format&fit=crop" alt="Bold black square frame"></div>
+        <div class="info"><span class="eyebrow">Acetate · Men</span><h3>Bold Square</h3><span class="price">₹1,699 onward</span></div>
+      </div>
+      <div class="frame-card fade-up">
+        <div class="imgwrap"><img src="https://images.unsplash.com/photo-1614715838608-2e2925ab1c91?q=80&w=800&auto=format&fit=crop" alt="Clear rimless frame"></div>
+        <div class="info"><span class="eyebrow">Rimless · Unisex</span><h3>Featherline</h3><span class="price">₹2,899 onward</span></div>
+      </div>
+      <div class="frame-card fade-up">
+        <div class="imgwrap"><img src="https://images.unsplash.com/photo-1508296695146-257a814070b4?q=80&w=800&auto=format&fit=crop" alt="Clear pink acetate frame"></div>
+        <div class="info"><span class="eyebrow">Acetate · Women</span><h3>Blush Cat-Eye</h3><span class="price">₹2,099 onward</span></div>
+      </div>
+      <div class="frame-card fade-up">
+        <div class="imgwrap"><img src="https://images.unsplash.com/photo-1577744486770-020a0eb1b4cd?q=80&w=800&auto=format&fit=crop" alt="Aviator metal sunglasses frame"></div>
+        <div class="info"><span class="eyebrow">Metal · Unisex</span><h3>Classic Aviator</h3><span class="price">₹1,999 onward</span></div>
+      </div>
+      <div class="frame-card fade-up">
+        <div class="imgwrap"><img src="https://images.unsplash.com/photo-1577803645773-f96470509666?q=80&w=800&auto=format&fit=crop" alt="Round wire frame glasses"></div>
+        <div class="info"><span class="eyebrow">Titanium · Men</span><h3>Wire Round</h3><span class="price">₹2,299 onward</span></div>
+      </div>
+      <div class="frame-card fade-up">
+        <div class="imgwrap"><img src="https://images.unsplash.com/photo-1577803645773-f96470509666?q=80&w=820&auto=format&fit=crop&sat=-20" alt="Kids colourful frame"></div>
+        <div class="info"><span class="eyebrow">Flex Acetate · Kids</span><h3>Junior Flex</h3><span class="price">₹999 onward</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="lenses" style="background:var(--card); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <div class="section-head fade-up">
+      <h2>Lenses, ground for<br>how you actually live.</h2>
+      <p>Every pair is fitted with precision-ground lenses from leading labs, matched to your prescription and lifestyle.</p>
+    </div>
+    <div class="lens-list">
+      <div class="lens-item fade-up"><span class="f-number">ƒ 01</span><h3>Single Vision</h3><p>Standard correction for short-sight, long-sight, or astigmatism — clear at one focal distance.</p></div>
+      <div class="lens-item fade-up"><span class="f-number">ƒ 02</span><h3>Progressive</h3><p>Seamless near, intermediate, and distance vision in one lens — no visible line, no switching glasses.</p></div>
+      <div class="lens-item fade-up"><span class="f-number">ƒ 03</span><h3>Bifocal</h3><p>Distinct near and distance zones, a dependable classic for reading and everyday wear.</p></div>
+      <div class="lens-item fade-up"><span class="f-number">ƒ 04</span><h3>Blue-Light Filter</h3><p>Cuts digital eye strain from screens — built for long hours on laptops and phones.</p></div>
+      <div class="lens-item fade-up"><span class="f-number">ƒ 05</span><h3>Photochromic</h3><p>Lenses that darken in sunlight and clear up indoors — one pair, day and night.</p></div>
+      <div class="lens-item fade-up"><span class="f-number">ƒ 06</span><h3>Anti-Glare Coated</h3><p>Reduces reflections and halos for sharper night driving and screen comfort.</p></div>
+      <div class="lens-item fade-up"><span class="f-number">ƒ 07</span><h3>Polarized Sun Lenses</h3><p>Cuts glare off water, glass, and tarmac — built for Kannur's coastal sun.</p></div>
+      <div class="lens-item fade-up"><span class="f-number">ƒ 08</span><h3>High-Index Thin</h3><p>Thinner, lighter lenses for strong prescriptions — comfortable, no thick edges.</p></div>
+      <div class="lens-item fade-up"><span class="f-number">ƒ 09</span><h3>Scratch-Resistant Coat</h3><p>A hardened surface layer that keeps lenses clear through years of daily wear.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="looks">
+  <div class="wrap">
+    <div class="section-head fade-up">
+      <h2>The Spring Lookbook</h2>
+      <p>How our frames wear in real light, on real faces — styled by our in-house fitting team.</p>
+    </div>
+    <div class="campaign">
+      <figure class="fade-up tall">
+        <img src="https://images.unsplash.com/photo-1556306535-0f09a537f0a3?q=80&w=900&auto=format&fit=crop" alt="Man wearing round tortoise glasses">
+        <figcaption><b>Tortoise Round</b>Styled with titanium temples</figcaption>
+      </figure>
+      <figure class="fade-up">
+        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=900&auto=format&fit=crop" alt="Woman wearing modern cat-eye glasses">
+        <figcaption><b>Halo Wire</b>Photochromic finish</figcaption>
+      </figure>
+      <figure class="fade-up">
+        <img src="https://images.unsplash.com/photo-1556306535-38febf6782e7?q=80&w=900&auto=format&fit=crop" alt="Man wearing bold square glasses outdoors">
+        <figcaption><b>Bold Square</b>Anti-glare coated</figcaption>
+      </figure>
+      <figure class="fade-up">
+        <img src="https://images.unsplash.com/photo-1591076482161-42ce6da69f67?q=80&w=900&auto=format&fit=crop" alt="Close up of woman wearing thin gold glasses">
+        <figcaption><b>Halo Wire</b>Close-up detail</figcaption>
+      </figure>
+      <figure class="fade-up tall">
+        <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=900&auto=format&fit=crop" alt="Woman wearing rimless glasses smiling">
+        <figcaption><b>Featherline</b>Rimless, barely-there fit</figcaption>
+      </figure>
+      <figure class="fade-up">
+        <img src="https://images.unsplash.com/photo-1577744486770-020a0eb1b4cd?q=80&w=900&auto=format&fit=crop" alt="Man wearing aviator sunglasses outdoors">
+        <figcaption><b>Classic Aviator</b>Polarized sun lenses</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section style="border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <div class="section-head fade-up">
+      <h2>From eye test<br>to ready frame.</h2>
+      <p>A simple, four-step visit — most customers walk out wearing their glasses the same day.</p>
+    </div>
+    <div class="process">
+      <div class="step fade-up"><span class="f-number">ƒ 01</span><h3>Eye Test</h3><p>Computerized refraction by our optometrist, free of charge.</p></div>
+      <div class="step fade-up"><span class="f-number">ƒ 02</span><h3>Frame Fitting</h3><p>Try frames across our full collection with guided styling advice.</p></div>
+      <div class="step fade-up"><span class="f-number">ƒ 03</span><h3>Lens Selection</h3><p>Choose the lens type and coating that fits your prescription and routine.</p></div>
+      <div class="step fade-up"><span class="f-number">ƒ 04</span><h3>Same-Day Fit</h3><p>Precision edging and fitting done in-store — most orders ready within hours.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonial-band">
+  <div class="wrap">
+    <img class="fade-up" src="https://images.unsplash.com/photo-1508296695146-257a814070b4?q=80&w=900&auto=format&fit=crop" alt="Customer wearing new glasses">
+    <div class="fade-up">
+      <blockquote>"My progressive lenses were ready the same evening. Walked in unsure, walked out seeing — and looking — better."</blockquote>
+      <cite>— Anitha R., Pilathara</cite>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="wrap">
+    <div class="section-head fade-up">
+      <h2>Visit the store</h2>
+      <p>Drop in for a free eye test, or call ahead to reserve a frame from our collection.</p>
+    </div>
+    <div class="location-grid">
+      <div class="location-info fade-up">
+        <h3>Fashion Opticals</h3>
+        <div class="item"><b>Address</b><span>Pilathara, Kannur, Kerala, India</span></div>
+        <div class="item"><b>Hours</b><span>Mon – Sat: 9:30 AM – 8:30 PM<br>Sunday: 10:00 AM – 2:00 PM</span></div>
+        <div class="item"><b>Phone</b><span>Call the store for appointments &amp; price enquiries</span></div>
+        <div class="item"><b>Getting here</b><span>Located on the main Pilathara road, Kannur — easy two-wheeler and car parking available.</span></div>
+        <a class="btn-primary" style="margin-top:22px; display:inline-block;" href="https://www.google.com/maps/place/Fashion+Opticals/@12.08057,75.2603503,17z/data=!3m1!4b1!4m6!3m5!1s0x3ba46b76d094cf0f:0xf99772b19fdcf6c6!8m2!3d12.0805648!4d75.2629252!16s%2Fg%2F11hb8wwh18" target="_blank" rel="noopener">Open in Google Maps</a>
+      </div>
+      <div class="map-embed fade-up">
+        <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Fashion+Opticals,+Pilathara,+Kannur&output=embed">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="cta-band fade-up">
+    <h2>Your next pair is waiting at Fashion Opticals.</h2>
+    <a class="btn-primary" href="https://www.google.com/maps/place/Fashion+Opticals/@12.08057,75.2603503,17z/data=!3m1!4b1!4m6!3m5!1s0x3ba46b76d094cf0f:0xf99772b19fdcf6c6!8m2!3d12.0805648!4d75.2629252!16s%2Fg%2F11hb8wwh18" target="_blank" rel="noopener">Get Directions</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a href="#" class="logo"><span class="ring"></span>Fashion Opticals</a>
+        <p style="margin-top:16px; font-size:14px; color:var(--emerald-soft); max-width:280px; line-height:1.6;">Precision eye care and curated frames, in the heart of Pilathara, Kannur.</p>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <ul><li><a href="#frames">Frames</a></li><li><a href="#lenses">Lenses</a></li><li><a href="#looks">Lookbook</a></li></ul>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul><li>Eye Test</li><li>Frame Fitting</li><li>Lens Coatings</li></ul>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <ul><li>Pilathara, Kannur</li><li>Mon–Sat 9:30–8:30</li><li>Sun 10:00–2:00</li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fashion Opticals, Pilathara.</span>
+      <span>Designed for clearer mornings.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const els = document.querySelectorAll('.fade-up');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  }, {threshold:0.15});
+  els.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
